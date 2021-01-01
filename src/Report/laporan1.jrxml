@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="laporan1" language="groovy" pageWidth="792" pageHeight="1080" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c7dad855-855a-4f94-99a6-ebbf06f08ed7">
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     penjualan.`no_pesanan` AS penjualan_no_pesanan,
+     penjualan.`no_faktur` AS penjualan_no_faktur,
+     penjualan.`tanggal` AS penjualan_tanggal,
+     penjualan.`nama_customer` AS penjualan_nama_customer,
+     penjualan.`id_barang` AS penjualan_id_barang,
+     penjualan.`nama_barang` AS penjualan_nama_barang,
+     penjualan.`harga_barang` AS penjualan_harga_barang,
+     penjualan.`quantity` AS penjualan_quantity,
+     penjualan.`harga` AS penjualan_harga,
+     penjualan.`ppn` AS penjualan_ppn,
+     penjualan.`total_harga` AS penjualan_total_harga
+FROM
+     `penjualan` penjualan]]>
+	</queryString>
+	<field name="penjualan_no_faktur" class="java.lang.String"/>
+	<field name="penjualan_tanggal" class="java.sql.Date"/>
+	<field name="penjualan_no_pesanan" class="java.lang.String"/>
+	<field name="penjualan_nama_customer" class="java.lang.String"/>
+	<field name="penjualan_nama_barang" class="java.lang.String"/>
+	<field name="penjualan_harga_barang" class="java.lang.Double"/>
+	<field name="penjualan_quantity" class="java.lang.Integer"/>
+	<field name="penjualan_harga" class="java.lang.Double"/>
+	<field name="penjualan_ppn" class="java.lang.Integer"/>
+	<field name="penjualan_total_harga" class="java.lang.Double"/>
+	<variable name="Total" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{penjualan_total_harga}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="167" splitType="Stretch">
+			<image>
+				<reportElement x="9" y="4" width="134" height="142" uuid="e7a8c8bb-91ab-4e1d-82c2-b66540aee0dc"/>
+				<imageExpression><![CDATA["C:\\Users\\danan\\Documents\\New Folder\\inventory\\src\\image\\11111.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="248" y="4" width="321" height="50" forecolor="#3333FF" uuid="c1cb7c17-b1c2-42aa-8b75-5634edbb5b35"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[PT. Sugimoto Presisi Technologi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="143" y="54" width="539" height="32" forecolor="#000000" uuid="b1dcb786-95bb-44a9-9e7c-1aaa119dcf9a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[Manufacturing, Dies, Jig, Fixtures, Machining, Fabrication, Specialist Precision Parts and Plating Proccess]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="86" width="493" height="27" forecolor="#000000" uuid="12fa733b-7eea-48e0-bf6f-f76c2e43f465"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[Plan 1 : Jl. Raya Perumahan Villa Mutiara Cikarang, Kp. Kukun, Ciantra, Cikarang Selatan Bekasi 17550]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="113" width="493" height="22" forecolor="#000000" uuid="36f394f3-7a6e-4eae-8a1f-b2629e1d7b98"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[Plan 2 : Ruko Villa Mutiara Cikarang Blok R2/20, Ciantra, Cikarang, Bekasi 17550]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="157" width="750" height="1" uuid="2195a498-4dc9-4255-909f-5eff1f99218e"/>
+			</line>
+			<line>
+				<reportElement x="2" y="0" width="750" height="1" uuid="87322dea-3adb-4ab6-afab-d5c978e881a9"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="75" splitType="Stretch">
+			<staticText>
+				<reportElement x="277" y="0" width="221" height="28" uuid="4909aa4c-32f0-4f91-ba12-3703faa3ee8f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Penjualan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="43" width="64" height="20" uuid="d8a28a75-377a-4320-8979-e099caacb9f4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal : ]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="73" y="43" width="139" height="20" uuid="c4a49298-dfd0-4039-9567-fe51b78152db"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="2" y="63" width="750" height="1" uuid="ae563a84-85fd-4ed7-b1eb-ae15a57d6720"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="24" y="0" width="100" height="20" backcolor="#6699FF" uuid="973c058f-af4b-452f-a4eb-fccd46953673"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. Faktur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="124" y="0" width="100" height="20" backcolor="#6699FF" uuid="4f1de0a6-be1d-4c4a-ad87-aef70991a315"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="324" y="0" width="100" height="20" backcolor="#6699FF" uuid="f146e8be-a6cb-4a2f-8b62-3508281d7821"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="424" y="0" width="100" height="20" backcolor="#6699FF" uuid="431f969e-1ad6-4331-a018-6ed188c9e251"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jumlah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="524" y="0" width="100" height="20" backcolor="#6699FF" uuid="1b4acbd3-8490-456c-9e1b-815deb9ffcae"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="224" y="0" width="100" height="20" backcolor="#6699FF" uuid="1b975051-822d-4fa0-a84d-05e4d4efb4a1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pelanggan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="620" y="0" width="100" height="20" backcolor="#6699FF" uuid="762fefa8-8856-44a0-8a1b-492d04b21941"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Subtotal]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="24" y="2" width="100" height="20" uuid="fd01b293-615f-4987-8e2d-d44797f287ae"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{penjualan_no_faktur}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="124" y="2" width="100" height="20" uuid="a9054c95-d350-430a-a65b-cb7c9e76296a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{penjualan_tanggal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="224" y="2" width="100" height="20" uuid="abf22c22-ba52-4b0f-90fc-56ec8b526f4c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{penjualan_nama_customer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="324" y="2" width="100" height="20" uuid="a146b1fa-c98d-4873-891b-4c60199877f0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{penjualan_nama_barang}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement x="424" y="2" width="100" height="20" uuid="4ab2a839-3840-40df-87e3-c27a8a2695da"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{penjualan_quantity}]]></textFieldExpression>
+			</textField>
+			<textField pattern=" #,##0.00;(¤ #,##0.00) ">
+				<reportElement x="524" y="2" width="100" height="20" uuid="d2256a60-65ed-4639-9277-c04dcf8e5db1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{penjualan_total_harga}]]></textFieldExpression>
+			</textField>
+			<textField pattern=" #,##0.00;(¤ #,##0.00) " isBlankWhenNull="true">
+				<reportElement x="624" y="2" width="96" height="20" uuid="6099b9a2-f504-432e-92da-aa45cba7a122"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="22" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="666" y="34" width="42" height="20" uuid="b1966df1-9e12-464a-8d3a-d8918bdfaef3"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Page  :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="708" y="34" width="31" height="20" uuid="847fde82-77f2-4c6f-8a72-c3e232666c16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

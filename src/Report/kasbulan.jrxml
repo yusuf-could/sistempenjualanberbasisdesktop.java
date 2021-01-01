@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="928" pageHeight="1008" columnWidth="888" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="72902641-9fcd-4404-ba62-b7ae073dce63">
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="pbulan" class="java.lang.String"/>
+	<parameter name="ptahun" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     jurnal.`kode_jurnal` AS jurnal_kode_jurnal,
+     jurnal.`tanggal` AS jurnal_tanggal,
+     jurnal.`keterangan` AS jurnal_keterangan,
+     jurnal.`kode_akun` AS jurnal_kode_akun,
+     jurnal.`nama_akun` AS jurnal_nama_akun,
+     jurnal.`sebesar` AS jurnal_sebesar,
+     jurnal.`debit` AS jurnal_debit,
+     jurnal.`kredit` AS jurnal_kredit
+FROM
+     `jurnal` jurnal
+WHERE
+     month(tanggal) = $P{pbulan}
+     and year(tanggal) = $P{ptahun}]]>
+	</queryString>
+	<field name="jurnal_kode_jurnal" class="java.lang.String"/>
+	<field name="jurnal_tanggal" class="java.sql.Date"/>
+	<field name="jurnal_keterangan" class="java.lang.String"/>
+	<field name="jurnal_kode_akun" class="java.lang.String"/>
+	<field name="jurnal_nama_akun" class="java.lang.String"/>
+	<field name="jurnal_sebesar" class="java.lang.Double"/>
+	<field name="jurnal_debit" class="java.lang.String"/>
+	<field name="jurnal_kredit" class="java.lang.String"/>
+	<variable name="Saldo" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{jurnal_sebesar}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="163" splitType="Stretch">
+			<image>
+				<reportElement x="96" y="0" width="134" height="142" uuid="c1643f54-6298-41d2-8e82-7cf193bd2e01"/>
+				<imageExpression><![CDATA["C:\\Users\\danan\\Documents\\New Folder\\inventory\\src\\image\\11111.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="335" y="0" width="321" height="50" forecolor="#3333FF" uuid="464a13ed-e1e6-4b41-84f6-ad36f788a811"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[PT. Sugimoto Presisi Technologi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="50" width="539" height="32" forecolor="#000000" uuid="a32db5bc-85d1-409f-9a3e-45b32bedcde1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[Manufacturing, Dies, Jig, Fixtures, Machining, Fabrication, Specialist Precision Parts and Plating Proccess]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="247" y="82" width="493" height="27" forecolor="#000000" uuid="2cbcc1e4-72d2-48a8-b3f7-e062ab92131b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[Plan 1 : Jl. Raya Perumahan Villa Mutiara Cikarang, Kp. Kukun, Ciantra, Cikarang Selatan Bekasi 17550]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="247" y="109" width="493" height="22" forecolor="#000000" uuid="3967ccc2-350c-4f15-895f-c6ec4edc4290"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[Plan 2 : Ruko Villa Mutiara Cikarang Blok R2/20, Ciantra, Cikarang, Bekasi 17550]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="-4" width="888" height="1" uuid="f82bedac-784a-4e61-ad71-80c6d6619a49"/>
+			</line>
+			<line>
+				<reportElement x="0" y="156" width="888" height="1" uuid="899d0b7f-9b7a-4295-9c20-6d1c4ad6add3"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="96" splitType="Stretch">
+			<staticText>
+				<reportElement x="312" y="12" width="282" height="28" uuid="b9bcc646-fbe6-47e1-8c05-61a0f48ed895"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Penerimaan Kas Per-Bulan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="50" height="20" uuid="5ad7ec48-6d0d-4b66-94eb-7d4bdcb1227f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bulan   :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="66" width="50" height="20" uuid="a297f913-9614-4f29-9881-b0ef332faad1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tahun  :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="40" width="100" height="20" uuid="5db32050-9592-4976-b542-6f9d4ad0f9d4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pbulan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="66" width="100" height="20" uuid="89d572f8-5981-4668-9bb4-25bae1c79c79"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ptahun}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="95" width="888" height="1" uuid="71c9f1a9-be88-4e8e-856a-78217fc966c0"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="12" y="13" width="100" height="20" backcolor="#6699FF" uuid="e38d03ab-8ddd-43f9-a1a7-9136fb2bf554"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kode Jurnal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="212" y="13" width="100" height="20" backcolor="#6699FF" uuid="a75fc92d-4d09-429c-ae88-559c1d5a171b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kode Akun]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="312" y="13" width="167" height="20" backcolor="#6699FF" uuid="402361b1-cd35-4882-a860-7ee3e4a16d1e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Akun]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="479" y="13" width="100" height="20" backcolor="#6699FF" uuid="c300e24c-06d0-4ad3-bccd-c0ddad2fded3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jumlah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="579" y="13" width="100" height="20" backcolor="#6699FF" uuid="1a7dc29d-1197-4251-9e43-e3f668cf832d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Debit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="679" y="13" width="100" height="20" backcolor="#6699FF" uuid="3cc338bc-80fa-4db9-a6c7-6df7efed84fa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kredit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="112" y="13" width="100" height="20" backcolor="#3399FF" uuid="6091b61a-6b65-4f67-8026-ec90f1e0a7eb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="779" y="13" width="100" height="20" backcolor="#6699FF" uuid="ff1b427f-a049-4751-80aa-b19baddeb7b9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Saldo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<textField>
+				<reportElement x="12" y="0" width="100" height="20" uuid="3c3f14c1-9d10-4d86-b024-c74bce65d8ac"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jurnal_kode_jurnal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="0" width="100" height="20" uuid="0e3c81f9-a801-49ac-a6c3-3cb35169b2b9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jurnal_tanggal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="212" y="0" width="100" height="20" uuid="f08aa757-18b5-4021-bdee-bca5ac590674"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jurnal_kode_akun}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="312" y="0" width="167" height="20" uuid="8f43c3b3-7dc1-44e4-86be-ec76bb443941"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jurnal_nama_akun}]]></textFieldExpression>
+			</textField>
+			<textField pattern=" #,##0.00;(¤ #,##0.00) ">
+				<reportElement x="479" y="0" width="100" height="20" uuid="92010155-63da-43b6-ac94-6818401029bc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jurnal_sebesar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="579" y="0" width="100" height="20" uuid="fb5f0ff4-f68d-4263-bd31-8bff6bd8e93c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jurnal_debit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="679" y="0" width="100" height="20" uuid="16a8bb02-7912-4265-bca8-c2476c6ac80e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jurnal_kredit}]]></textFieldExpression>
+			</textField>
+			<textField pattern=" #,##0.00;(¤ #,##0.00) " isBlankWhenNull="true">
+				<reportElement x="779" y="0" width="100" height="20" uuid="8c94a8b3-5cfb-4e37-8342-a90368dc5c6b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Saldo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="803" y="20" width="42" height="20" uuid="3c37e7e7-a610-4e7c-9ec0-d0ba6a7dffb8"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Page  :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="845" y="20" width="31" height="20" uuid="40391a15-12cc-4963-ac07-4d4404aa43da"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
